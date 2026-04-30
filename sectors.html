@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sectors — Sterling Crest FM Facilities Management</title>
+  <meta name="description" content="FM services for commercial and industrial environments — offices, retail, warehouses, manufacturing, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    #sectors-hero .page-hero-bg {
+      background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80');
+    }
+    .sector-detail-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+      padding: clamp(4rem,8vw,7rem) 0;
+    }
+    @media (max-width: 860px) {
+      .sector-detail-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .sector-detail-layout.reverse { direction: ltr; }
+    }
+    .sector-detail-layout.reverse { direction: rtl; }
+    .sector-detail-layout.reverse > * { direction: ltr; }
+    .sector-environment-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+      border-radius: 4px; overflow: hidden; margin-top: 2rem;
+    }
+    .sector-env-item {
+      background: var(--navy-3); padding: 1.25rem 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      transition: background 0.3s;
+    }
+    .sector-env-item:hover { background: var(--navy-4); }
+    .sector-env-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    .sector-env-item span { font-size: 0.82rem; color: var(--text-2); }
+    @media (max-width: 480px) { .sector-environment-grid { grid-template-columns: 1fr; } }
+    .sector-services-list {
+      margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .sector-service-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--navy-3); border: 1px solid var(--border); border-radius: 4px;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .sector-service-item:hover { border-color: var(--gold-border); background: var(--navy-4); }
+    .sector-service-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .sector-service-item h5 { font-size: 0.82rem; color: var(--text); font-weight: 600; margin-bottom: 0.2rem; }
+    .sector-service-item p { font-size: 0.78rem; color: var(--text-2); line-height: 1.5; }
+    .sector-img-stack { position: relative; }
+    .sector-img-main { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 4px; display: block; filter: brightness(0.85) saturate(0.9); }
+    .sector-img-inset {
+      position: absolute; bottom: -1.5rem; right: -1.5rem;
+      width: 55%; aspect-ratio: 4/3; object-fit: cover;
+      border-radius: 4px; border: 3px solid var(--navy);
+      filter: brightness(0.85) saturate(0.9);
+    }
+    .sector-img-badge {
+      position: absolute; top: 1.25rem; left: 1.25rem;
+      background: rgba(7,9,26,0.85); backdrop-filter: blur(8px);
+      border: 1px solid var(--gold-border); border-radius: 2px; padding: 0.5rem 1rem;
+      font-size: 0.62rem; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div id="scroll-bar"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="trans_logo.png" alt="Sterling Crest FM" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="sectors.html" class="active">Sectors</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMobile()">Home</a>
+    <a href="services.html" onclick="closeMobile()">Services</a>
+    <a href="sectors.html" onclick="closeMobile()" class="active">Sectors</a>
+    <a href="about.html" onclick="closeMobile()">About</a>
+    <a href="contact.html" onclick="closeMobile()" class="mobile-cta">Get a Quote</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div id="sectors-hero" class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-grid"></div>
+    <div class="page-hero-geo-tl"></div>
+    <div class="page-hero-geo-br"></div>
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">
+        <div class="page-hero-eyebrow-dot"></div>
+        <span>Where We Work</span>
+      </div>
+      <h1 class="page-hero-title">Commercial &amp; <em>Industrial</em></h1>
+      <div class="page-hero-divider"></div>
+      <p class="page-hero-sub">Our teams work across a wide range of property types and environments. Every sector has its own compliance requirements, operational pressures, and standards — we understand them all.</p>
+    </div>
+  </div>
+
+  <!-- COMMERCIAL SECTOR -->
+  <span id="commercial" style="display:block;padding-top:80px;margin-top:-80px;"></span>
+  <section style="background:var(--navy);border-top:1px solid var(--gold-border);">
+    <div class="section-inner">
+      <div class="sector-detail-layout">
+        <div>
+          <div class="reveal">
+            <div class="section-label">Commercial Sector</div>
+            <h2 class="section-title">Office, Retail &amp;<br><em>Public Environments</em></h2>
+            <div class="gold-line"></div>
+            <p class="section-sub">
+              Commercial buildings demand a different standard of FM — visible, presentable, and always compliant. We understand the expectations of tenants, landlords, and building managers, and deliver accordingly.
+            </p>
+          </div>
+
+          <div class="sector-services-list reveal reveal-delay-1">
+            <div class="sector-service-item">
+              <span class="sector-service-icon">⚡</span>
+              <div>
+                <h5>Electrical Compliance</h5>
+                <p>EICRs, PAT testing, emergency lighting — all testing and certification to satisfy your insurers, landlords, and regulatory obligations.</p>
+              </div>
+            </div>
+            <div class="sector-service-item">
+              <span class="sector-service-icon">🔧</span>
+              <div>
+                <h5>Reactive &amp; Planned Maintenance</h5>
+                <p>From broken fixtures to full office refurbishments — scheduled PPM programmes and rapid reactive response to keep your premises presentable and operational.</p>
+              </div>
+            </div>
+            <div class="sector-service-item">
+              <span class="sector-service-icon">✨</span>
+              <div>
+                <h5>Daily &amp; Periodic Cleaning</h5>
+                <p>Contract cleaning programmes tailored to occupancy and usage — daily cleans, washroom services, window cleaning, and high-specification deep cleans.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-2" style="margin-top:2rem;">
+            <p style="font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:600;">Environments We Serve</p>
+            <div class="sector-environment-grid">
+              <div class="sector-env-item"><span class="sector-env-dot"></span><span>Corporate Office Estates</span></div>
+              <div class="sector-env-item"><span class="sector-env-dot"></span><span>Retail Units &amp; Shopping Centres</span></div>
+              <div class="sector-env-item"><span class="sector-env-dot"></span><span>Healthcare &amp; GP Practices</span></div>
+              <div class="sector-env-item"><span class="sector-env-dot"></span><span>Hospitality &amp; Leisure</span></div>
+              <div class="sector-env-item"><span class="sector-env-dot"></span><span>Education &amp; Training Facilities</span></div>
+              <div class="sector-env-item"><span class="sector-env-dot"></span><span>Multi-Tenanted Buildings</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sector-img-stack reveal-right" style="margin-bottom:3rem;">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80"
+               alt="Commercial office building" class="sector-img-main" data-parallax>
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80"
+               alt="Commercial interior" class="sector-img-inset">
+          <div class="sector-img-badge">Commercial FM Specialists</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div id="marquee-strip">
+    <div class="marquee-inner">
+      <span>Office Estates</span><span class="marquee-dot">◆</span>
+      <span>Retail &amp; Leisure</span><span class="marquee-dot">◆</span>
+      <span>Healthcare Facilities</span><span class="marquee-dot">◆</span>
+      <span>Warehouses &amp; Logistics</span><span class="marquee-dot">◆</span>
+      <span>Manufacturing Plants</span><span class="marquee-dot">◆</span>
+      <span>Distribution Centres</span><span class="marquee-dot">◆</span>
+      <span>Food Production</span><span class="marquee-dot">◆</span>
+      <span>Multi-Tenanted Buildings</span><span class="marquee-dot">◆</span>
+      <span>Office Estates</span><span class="marquee-dot">◆</span>
+      <span>Retail &amp; Leisure</span><span class="marquee-dot">◆</span>
+      <span>Healthcare Facilities</span><span class="marquee-dot">◆</span>
+      <span>Warehouses &amp; Logistics</span><span class="marquee-dot">◆</span>
+      <span>Manufacturing Plants</span><span class="marquee-dot">◆</span>
+      <span>Distribution Centres</span><span class="marquee-dot">◆</span>
+      <span>Food Production</span><span class="marquee-dot">◆</span>
+      <span>Multi-Tenanted Buildings</span><span class="marquee-dot">◆</span>
+    </div>
+  </div>
+
+  <!-- INDUSTRIAL SECTOR -->
+  <span id="industrial" style="display:block;padding-top:80px;margin-top:-80px;"></span>
+  <section style="background:var(--navy-2);border-top:1px solid var(--border);">
+    <div class="section-inner">
+      <div class="sector-detail-layout reverse">
+        <div>
+          <div class="reveal">
+            <div class="section-label">Industrial Sector</div>
+            <h2 class="section-title">Warehouses,<br><em>Factories &amp; Beyond</em></h2>
+            <div class="gold-line"></div>
+            <p class="section-sub">
+              Industrial environments have zero tolerance for downtime. Our teams work safely around live operations, understand the specific compliance and hygiene demands of industrial settings, and deliver without disruption.
+            </p>
+          </div>
+
+          <div class="sector-services-list reveal reveal-delay-1">
+            <div class="sector-service-item">
+              <span class="sector-service-icon">⚡</span>
+              <div>
+                <h5>Industrial Electrical Works</h5>
+                <p>Three-phase installations, machine feeds, industrial lighting, fixed wire testing, and emergency systems — all compliant with industrial BS EN standards.</p>
+              </div>
+            </div>
+            <div class="sector-service-item">
+              <span class="sector-service-icon">🔧</span>
+              <div>
+                <h5>Fabric &amp; Structural Maintenance</h5>
+                <p>Loading bay doors, roller shutters, roof integrity, drainage, and general fabric maintenance — keeping industrial premises safe, weathertight, and fully operational.</p>
+              </div>
+            </div>
+            <div class="sector-service-item">
+              <span class="sector-service-icon">✨</span>
+              <div>
+                <h5>Industrial Cleaning</h5>
+                <p>Floor scrubbing, high-level warehouse cleaning, pressure washing, specialist decontamination, and daily welfare/office cleaning — every area covered.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-2" style="margin-top:2rem;">
+            <p style="font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:600;">Environments We Serve</p>
+            <div class="sector-environment-grid">
+              <div class="sector-env-item"><span class="sector-env-dot"></span><span>Warehousing &amp; Storage</span></div>
+              <div class="sector-env-item"><span class="sector-env-dot"></span><span>Manufacturing Plants</span></div>
+              <div class="sector-env-item"><span class="sector-env-dot"></span><span>Logistics &amp; Distribution</span></div>
+              <div class="sector-env-item"><span class="sector-env-dot"></span><span>Food Production Facilities</span></div>
+              <div class="sector-env-item"><span class="sector-env-dot"></span><span>Engineering Workshops</span></div>
+              <div class="sector-env-item"><span class="sector-env-dot"></span><span>Industrial Estates</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sector-img-stack reveal-left" style="margin-bottom:3rem;">
+          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80"
+               alt="Industrial warehouse" class="sector-img-main" data-parallax>
+          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80"
+               alt="Industrial facility" class="sector-img-inset">
+          <div class="sector-img-badge">Industrial FM Specialists</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--navy);border-top:1px solid var(--border);">
+    <div class="section-inner">
+      <div class="cta-box reveal-scale">
+        <div class="cta-bg" style="background-image:url('https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=1920&q=80');"></div>
+        <div class="cta-overlay"></div>
+        <div class="cta-box-geo-tl"></div>
+        <div class="cta-box-geo-br"></div>
+        <div class="cta-content">
+          <h2>Serving Your<br><em>Sector and Site</em></h2>
+          <p>Every site is different. Tell us about your environment and requirements — we'll come and see it for ourselves before putting together a proposal.</p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn-primary">Request a Site Visit →</a>
+            <a href="services.html" class="btn-ghost">View All Services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="trans_logo.png" alt="Sterling Crest FM" class="footer-logo-img">
+        </div>
+        <p class="footer-tagline">"Electrical. Building. Cleaning. Three disciplines, one accountable partner for every aspect of your building."</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" title="LinkedIn">in</a>
+          <a href="#" class="footer-social" title="Facebook">f</a>
+          <a href="#" class="footer-social" title="Twitter/X">𝕏</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="sectors.html">Sectors</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#electrical">Electrical Services</a></li>
+          <li><a href="services.html#building">Building Works</a></li>
+          <li><a href="services.html#cleaning">Cleaning Services</a></li>
+          <li><a href="#commercial">Commercial Sector</a></li>
+          <li><a href="#industrial">Industrial Sector</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Get in Touch</h5>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📞</span><a href="tel:[PHONE]">[PHONE NUMBER]</a></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">✉</span><a href="mailto:Sterlingcrestfm@outlook.com">Sterlingcrestfm@outlook.com</a></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📍</span><span>[ADDRESS], [CITY]</span></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">🕐</span><span>Mon–Fri: 7:30am–6pm</span></div>
+      </div>
+    </div>
+    <div class="footer-creds">
+      <div class="footer-creds-left">
+        <div class="cred-badge"><span class="cred-badge-dot"></span>CHAS Accredited</div>
+        <div class="cred-badge"><span class="cred-badge-dot"></span>NICEIC Approved</div>
+        <div class="cred-badge"><span class="cred-badge-dot"></span>ISO 9001:2015</div>
+        <div class="cred-badge"><span class="cred-badge-dot"></span>Company No. [XXXXXXXX]</div>
+      </div>
+      <div class="footer-creds-right">© 2025 [Company Name] Ltd. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Sterling Crest FM Facilities Management</title>
+  <meta name="description" content="Who we are, how we work, and why clients trust us with their buildings.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    #about-hero .page-hero-bg {
+      background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1920&q=80');
+    }
+    .values-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
+      background: var(--gold-border); border: 1px solid var(--gold-border);
+      border-radius: 4px; overflow: hidden; margin-top: 3rem;
+    }
+    .value-card {
+      background: var(--navy-2); padding: 2.5rem 2rem;
+      transition: background 0.3s;
+    }
+    .value-card:hover { background: var(--navy-3); }
+    .value-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300;
+      color: var(--gold); opacity: 0.25; line-height: 1; margin-bottom: 1rem;
+    }
+    .value-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--text); margin-bottom: 0.65rem; }
+    .value-card p { font-size: 0.82rem; color: var(--text-2); line-height: 1.7; }
+    @media (max-width: 640px) { .values-grid { grid-template-columns: 1fr; } }
+    .about-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-bottom: 5rem; }
+    @media (max-width: 860px) { .about-intro { grid-template-columns: 1fr; gap: 3rem; } }
+    .timeline { margin-top: 3rem; display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: grid; grid-template-columns: 80px 1fr; gap: 2rem; align-items: flex-start;
+      padding: 1.5rem 0; border-bottom: 1px solid var(--border);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-year { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--gold); }
+    .timeline-content h5 { font-size: 0.875rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
+    .timeline-content p { font-size: 0.82rem; color: var(--text-2); line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div id="scroll-bar"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="trans_logo.png" alt="Sterling Crest FM" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="sectors.html">Sectors</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMobile()">Home</a>
+    <a href="services.html" onclick="closeMobile()">Services</a>
+    <a href="sectors.html" onclick="closeMobile()">Sectors</a>
+    <a href="about.html" onclick="closeMobile()" class="active">About</a>
+    <a href="contact.html" onclick="closeMobile()" class="mobile-cta">Get a Quote</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div id="about-hero" class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-grid"></div>
+    <div class="page-hero-geo-tl"></div>
+    <div class="page-hero-geo-br"></div>
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">
+        <div class="page-hero-eyebrow-dot"></div>
+        <span>Who We Are</span>
+      </div>
+      <h1 class="page-hero-title">Built on <em>Experience.</em><br>Driven by Standards.</h1>
+      <div class="page-hero-divider"></div>
+      <p class="page-hero-sub">[Company Name] was founded with a single focus: deliver reliable, compliant facilities management that clients can build their operations around.</p>
+    </div>
+  </div>
+
+  <!-- OUR STORY -->
+  <section style="background:var(--navy);">
+    <div class="section-inner">
+      <div class="about-intro">
+        <div class="reveal-left">
+          <div class="section-label">Our Story</div>
+          <h2 class="section-title">Founded in<br><em>[YEAR], Built to Last</em></h2>
+          <div class="gold-line"></div>
+          <p class="section-sub" style="margin-bottom:1.5rem;">
+            [Company Name] was established by [FOUNDER NAME] with a clear vision: that commercial and industrial clients deserved better than managing multiple contractors, fielding conflicting invoices, and chasing accountability across three separate services.
+          </p>
+          <p style="font-size:0.95rem;color:var(--text-2);line-height:1.75;max-width:520px;">
+            We started with electrical contracting and quickly expanded into building works and commercial cleaning — building the integrated FM offering that clients had been asking for. Today we serve commercial and industrial clients across [REGION], delivering all three disciplines under one contract, with one accountable team.
+          </p>
+        </div>
+        <div class="reveal-right">
+          <div style="position:relative;border-radius:4px;overflow:hidden;aspect-ratio:4/3;">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80"
+                 data-parallax
+                 alt="Professional team"
+                 style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.8) saturate(0.85);">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,9,26,0.3),transparent);"></div>
+            <div style="position:absolute;bottom:1.25rem;left:1.25rem;background:rgba(7,9,26,0.85);backdrop-filter:blur(8px);border:1px solid var(--gold-border);border-radius:2px;padding:0.5rem 1rem;font-size:0.62rem;letter-spacing:0.15em;color:var(--gold);text-transform:uppercase;">Est. [YEAR] · [REGION]</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-item reveal-scale">
+          <div class="stat-num" data-count="120" data-suffix="+">0</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-item reveal-scale reveal-delay-2">
+          <div class="stat-num" data-count="15" data-suffix="+">0</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item reveal-scale reveal-delay-3">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Service Disciplines</div>
+        </div>
+        <div class="stat-item reveal-scale reveal-delay-4">
+          <div class="stat-num">24hr</div>
+          <div class="stat-label">Emergency Response</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR VALUES -->
+  <section style="background:var(--navy-2);border-top:1px solid var(--border);">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">How We Work</div>
+        <h2 class="section-title">Our Commitments<br><em>to Every Client</em></h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card tiltable reveal-scale reveal-delay-1">
+          <div class="value-num">01</div>
+          <h4>Transparency</h4>
+          <p>Fixed-cost proposals, clear scope, no hidden extras. We tell you what we're going to do, how much it will cost, and we deliver exactly that. No surprises on the invoice.</p>
+        </div>
+        <div class="value-card tiltable reveal-scale reveal-delay-2">
+          <div class="value-num">02</div>
+          <h4>Accountability</h4>
+          <p>One point of contact for every discipline. You shouldn't have to manage your FM contractor — that's our job. Everything runs through a single dedicated account manager.</p>
+        </div>
+        <div class="value-card tiltable reveal-scale reveal-delay-3">
+          <div class="value-num">03</div>
+          <h4>Compliance First</h4>
+          <p>Every piece of work is documented, certified, and audit-ready. RAMS, certificates, COSHH data sheets, and compliance reports — provided as standard, not on request.</p>
+        </div>
+        <div class="value-card tiltable reveal-scale reveal-delay-4">
+          <div class="value-num">04</div>
+          <h4>Reliability</h4>
+          <p>We show up when we say we will, deliver what we said we would, and respond when you need us. Our repeat client retention rate speaks for itself.</p>
+        </div>
+        <div class="value-card tiltable reveal-scale reveal-delay-5">
+          <div class="value-num">05</div>
+          <h4>Safety</h4>
+          <p>CHAS and SafeContractor accredited. Every operative is inducted, briefed on site-specific hazards, and works to the highest safety standards on every job, every time.</p>
+        </div>
+        <div class="value-card tiltable reveal-scale reveal-delay-6">
+          <div class="value-num">06</div>
+          <h4>Long-Term Partnerships</h4>
+          <p>We're not here for a single contract. We want to understand your building, your operations, and your long-term plans — and grow as your trusted FM partner over the long haul.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANAGEMENT TEAM -->
+  <section style="background:var(--navy);border-top:1px solid var(--border);">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">The Team</div>
+        <h2 class="section-title">The People Behind<br><em>Every Job</em></h2>
+        <p class="section-sub" style="margin-top:0.5rem">Our leadership team brings together decades of experience across electrical contracting, building maintenance, and commercial cleaning management.</p>
+      </div>
+
+      <div class="team-grid" style="margin-top:3rem;">
+        <div class="team-card reveal-scale reveal-delay-1">
+          <!-- Replace image with actual team photo -->
+          <div style="width:100%;aspect-ratio:3/4;background:var(--navy-3);display:flex;align-items:center;justify-content:center;filter:brightness(0.8);">
+            <div style="text-align:center;color:var(--text-3);">
+              <div style="font-size:3rem;margin-bottom:0.5rem;">👤</div>
+              <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;">[PHOTO PLACEHOLDER]</div>
+            </div>
+          </div>
+          <div class="team-card-body">
+            <h4>[FOUNDER NAME]</h4>
+            <span>Managing Director</span>
+            <p style="font-size:0.78rem;color:var(--text-2);margin-top:0.5rem;line-height:1.6;">[Brief bio — experience, qualifications, background. e.g. "20 years in electrical contracting. NICEIC qualified. Founded [Company] in [Year]."]</p>
+          </div>
+        </div>
+        <div class="team-card reveal-scale reveal-delay-2">
+          <div style="width:100%;aspect-ratio:3/4;background:var(--navy-3);display:flex;align-items:center;justify-content:center;filter:brightness(0.8);">
+            <div style="text-align:center;color:var(--text-3);">
+              <div style="font-size:3rem;margin-bottom:0.5rem;">👤</div>
+              <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;">[PHOTO PLACEHOLDER]</div>
+            </div>
+          </div>
+          <div class="team-card-body">
+            <h4>[OPERATIONS MANAGER]</h4>
+            <span>Operations Manager</span>
+            <p style="font-size:0.78rem;color:var(--text-2);margin-top:0.5rem;line-height:1.6;">[Brief bio — experience, qualifications, background. e.g. "Oversees day-to-day delivery across all service lines. IOSH qualified. 15 years in FM."]</p>
+          </div>
+        </div>
+        <div class="team-card reveal-scale reveal-delay-3">
+          <div style="width:100%;aspect-ratio:3/4;background:var(--navy-3);display:flex;align-items:center;justify-content:center;filter:brightness(0.8);">
+            <div style="text-align:center;color:var(--text-3);">
+              <div style="font-size:3rem;margin-bottom:0.5rem;">👤</div>
+              <div style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;">[PHOTO PLACEHOLDER]</div>
+            </div>
+          </div>
+          <div class="team-card-body">
+            <h4>[CONTRACTS MANAGER]</h4>
+            <span>Contracts Manager</span>
+            <p style="font-size:0.78rem;color:var(--text-2);margin-top:0.5rem;line-height:1.6;">[Brief bio — experience, qualifications, background. e.g. "Client-facing account management. Handles tender submissions, compliance documentation, and client reporting."]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCREDITATIONS -->
+  <section style="background:var(--navy-2);border-top:1px solid var(--border);">
+    <div class="section-inner">
+      <div class="reveal" style="text-align:center;max-width:680px;margin:0 auto 1rem;">
+        <div class="section-label" style="justify-content:center;">Accreditations</div>
+        <h2 class="section-title" style="text-align:center;">Every Accreditation<br><em>Your Procurement Needs</em></h2>
+        <p style="font-size:0.95rem;color:var(--text-2);line-height:1.75;margin-top:0.5rem;">We maintain current accreditation across all disciplines — so your procurement team never has to chase certificates.</p>
+      </div>
+
+      <div class="accred-grid">
+        <div class="accred-item reveal-scale reveal-delay-1">
+          <span class="accred-icon">🛡️</span>
+          <strong>CHAS</strong>
+          <span>Contractors Health &amp;<br>Safety Assessment Scheme</span>
+        </div>
+        <div class="accred-item reveal-scale reveal-delay-2">
+          <span class="accred-icon">⚡</span>
+          <strong>NICEIC</strong>
+          <span>Approved Electrical<br>Contractor</span>
+        </div>
+        <div class="accred-item reveal-scale reveal-delay-3">
+          <span class="accred-icon">✅</span>
+          <strong>SafeContractor</strong>
+          <span>Health &amp; Safety<br>Accreditation</span>
+        </div>
+        <div class="accred-item reveal-scale reveal-delay-4">
+          <span class="accred-icon">📋</span>
+          <strong>ISO 9001:2015</strong>
+          <span>Quality Management<br>System</span>
+        </div>
+        <div class="accred-item reveal-scale reveal-delay-5">
+          <span class="accred-icon">🔒</span>
+          <strong>£5m Insured</strong>
+          <span>Public Liability<br>All Disciplines</span>
+        </div>
+      </div>
+
+      <div class="reveal" style="margin-top:3rem;background:var(--navy-3);border:1px solid var(--border);border-radius:4px;padding:2rem 2.5rem;text-align:center;">
+        <p style="font-size:0.875rem;color:var(--text-2);line-height:1.75;max-width:640px;margin:0 auto 1.5rem;">
+          All accreditation certificates, insurance documents, and compliance records are available immediately upon request — or included upfront with every tender or proposal submission.
+        </p>
+        <a href="contact.html" class="btn-ghost">Request a Compliance Pack →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--navy);border-top:1px solid var(--border);">
+    <div class="section-inner">
+      <div class="cta-box reveal-scale">
+        <div class="cta-bg" style="background-image:url('https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=1920&q=80');"></div>
+        <div class="cta-overlay"></div>
+        <div class="cta-box-geo-tl"></div>
+        <div class="cta-box-geo-br"></div>
+        <div class="cta-content">
+          <h2>Ready to Work<br><em>With Our Team?</em></h2>
+          <p>Get in touch today. We'll arrange a no-obligation site visit and put together a proposal that fits your requirements exactly.</p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn-primary">Get in Touch →</a>
+            <a href="services.html" class="btn-ghost">View Our Services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="trans_logo.png" alt="Sterling Crest FM" class="footer-logo-img">
+        </div>
+        <p class="footer-tagline">"Electrical. Building. Cleaning. Three disciplines, one accountable partner for every aspect of your building."</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" title="LinkedIn">in</a>
+          <a href="#" class="footer-social" title="Facebook">f</a>
+          <a href="#" class="footer-social" title="Twitter/X">𝕏</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="sectors.html">Sectors</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#electrical">Electrical Services</a></li>
+          <li><a href="services.html#building">Building Works</a></li>
+          <li><a href="services.html#cleaning">Cleaning Services</a></li>
+          <li><a href="sectors.html#commercial">Commercial Sector</a></li>
+          <li><a href="sectors.html#industrial">Industrial Sector</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Get in Touch</h5>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📞</span><a href="tel:[PHONE]">[PHONE NUMBER]</a></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">✉</span><a href="mailto:Sterlingcrestfm@outlook.com">Sterlingcrestfm@outlook.com</a></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📍</span><span>[ADDRESS], [CITY]</span></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">🕐</span><span>Mon–Fri: 7:30am–6pm</span></div>
+      </div>
+    </div>
+    <div class="footer-creds">
+      <div class="footer-creds-left">
+        <div class="cred-badge"><span class="cred-badge-dot"></span>CHAS Accredited</div>
+        <div class="cred-badge"><span class="cred-badge-dot"></span>NICEIC Approved</div>
+        <div class="cred-badge"><span class="cred-badge-dot"></span>ISO 9001:2015</div>
+        <div class="cred-badge"><span class="cred-badge-dot"></span>Company No. [XXXXXXXX]</div>
+      </div>
+      <div class="footer-creds-right">© 2025 [Company Name] Ltd. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>

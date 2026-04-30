@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sterling Crest FM — Commercial & Industrial Facilities Management</title>
+  <meta name="description" content="Total facilities management for commercial and industrial environments. Electrical, building works, and cleaning services under one contract.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── HOME-SPECIFIC ── */
+
+    #hero {
+      position: relative; min-height: 100svh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 7rem clamp(1.5rem, 6vw, 5rem) 10rem;
+      overflow: hidden;
+    }
+    #hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover; background-position: center 40%;
+      transform: scale(1.05);
+      animation: heroZoom 20s ease-in-out infinite alternate;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.05); }
+      to   { transform: scale(1.12); }
+    }
+    #hero-canvas {
+      position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 2;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,169,110,0.06) 0%, transparent 60%),
+        linear-gradient(180deg,
+          rgba(7,9,26,0.55) 0%,
+          rgba(7,9,26,0.72) 50%,
+          rgba(7,9,26,1) 100%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 2;
+      background-image:
+        linear-gradient(rgba(201,169,110,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,169,110,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+      pointer-events: none;
+    }
+    .hero-geo {
+      position: absolute; z-index: 3; opacity: 0.15; pointer-events: none;
+    }
+    .hero-geo-tl { top: 120px; left: clamp(1rem, 4vw, 4rem); width: 120px; height: 120px; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+    .hero-geo-br { bottom: 80px; right: clamp(1rem, 4vw, 4rem); width: 120px; height: 120px; border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+    .hero-content { position: relative; z-index: 4; max-width: 900px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      background: var(--gold-glow); border: 1px solid var(--gold-border);
+      padding: 0.5rem 1.25rem; border-radius: 100px; margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+    }
+    .hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s ease infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.6;transform:scale(1.3);} }
+    .hero-eyebrow span { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; color: var(--gold); }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif; font-weight: 600;
+      font-size: clamp(3rem, 8vw, 6.5rem); line-height: 1.05;
+      color: var(--text); margin-bottom: 0.5rem;
+      opacity: 0; animation: fadeUp 0.9s 0.4s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-divider {
+      width: 60px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 1.5rem auto;
+      opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--text-2);
+      font-weight: 300; max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.7;
+      opacity: 0; animation: fadeUp 0.9s 0.7s forwards;
+    }
+    .hero-pills {
+      display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 0.8s 0.85s forwards;
+    }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(201,169,110,0.08); border: 1px solid var(--gold-border);
+      padding: 0.35rem 0.9rem; border-radius: 100px;
+      font-size: 0.72rem; color: var(--text-2); letter-spacing: 0.1em;
+    }
+    .hero-pill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+    .hero-actions {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.8s 1s forwards;
+    }
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      z-index: 4; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      opacity: 0; animation: fadeIn 1s 1.4s forwards;
+    }
+    .hero-scroll span { font-size: 0.6rem; letter-spacing: 0.2em; color: var(--text-3); text-transform: uppercase; }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(180deg, var(--gold), transparent); animation: scrollLine 2s ease-in-out infinite; }
+
+    /* Services intro split */
+    .services-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-bottom: 5rem; }
+    @media (max-width: 860px) { .services-intro { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+    /* Why section */
+    #why { background: var(--navy-2); border-top: 1px solid var(--border); }
+
+    /* Process section */
+    #process { background: var(--navy); border-top: 1px solid var(--border); }
+
+    /* Sectors section */
+    #sectors { background: var(--navy-2); border-top: 1px solid var(--border); }
+
+    /* Testimonials section */
+    #testimonials { background: var(--navy); border-top: 1px solid var(--border); }
+
+    /* CTA section */
+    #cta { background: var(--navy-2); border-top: 1px solid var(--border); }
+    .cta-bg { background-image: url('https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=1920&q=80'); }
+
+    /* ── MOBILE HERO ── */
+    @media (max-width: 640px) {
+      #hero { padding: 6rem 1.25rem 9rem; }
+      .hero-eyebrow { margin-bottom: 1.5rem; padding: 0.4rem 1rem; }
+      .hero-eyebrow span { font-size: 0.6rem; letter-spacing: 0.15em; }
+      .hero-divider { margin: 1rem auto; }
+      .hero-sub { margin-bottom: 1.75rem; }
+      .hero-pills { gap: 0.5rem; margin-bottom: 1.75rem; }
+      .hero-pill { font-size: 0.62rem; padding: 0.28rem 0.65rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-ghost { text-align: center; justify-content: center; }
+    }
+    @media (max-width: 380px) {
+      .hero-pills { display: grid; grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div id="scroll-bar"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="trans_logo.png" alt="Sterling Crest FM" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="sectors.html">Sectors</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMobile()" class="active">Home</a>
+    <a href="services.html" onclick="closeMobile()">Services</a>
+    <a href="sectors.html" onclick="closeMobile()">Sectors</a>
+    <a href="about.html" onclick="closeMobile()">About</a>
+    <a href="contact.html" onclick="closeMobile()" class="mobile-cta">Get a Quote</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div id="hero-bg"></div>
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-geo hero-geo-tl"></div>
+    <div class="hero-geo hero-geo-br"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        <span>Commercial &amp; Industrial · FM Specialists</span>
+      </div>
+      <h1 class="hero-title">
+        Total Facilities<br>
+        Management, <em>Delivered.</em>
+      </h1>
+      <div class="hero-divider"></div>
+      <p class="hero-sub">
+        Electrical. Building works. Cleaning. Three disciplines under one contract — one accountable partner for every aspect of your building's operation.
+      </p>
+      <div class="hero-pills">
+        <span class="hero-pill"><span class="hero-pill-dot"></span>CHAS Accredited</span>
+        <span class="hero-pill"><span class="hero-pill-dot"></span>NICEIC Approved</span>
+        <span class="hero-pill"><span class="hero-pill-dot"></span>Fully Insured</span>
+        <span class="hero-pill"><span class="hero-pill-dot"></span>24hr Callout</span>
+      </div>
+      <div class="hero-actions">
+        <a href="contact.html" class="btn-primary">Request a Quote →</a>
+        <a href="services.html" class="btn-ghost">View Services</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div id="trust">
+    <div class="trust-inner">
+      <div class="trust-item reveal">
+        <div class="trust-logo-wrap"><span class="trust-icon">🛡️</span></div>
+        <strong>CHAS Accredited</strong>
+        <span>Contractors Health &amp;<br>Safety Assessment</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item reveal reveal-delay-1">
+        <div class="trust-logo-wrap"><span class="trust-icon">⚡</span></div>
+        <strong>NICEIC Approved</strong>
+        <span>Electrical Contracting<br>Approved Contractor</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item trust-mobile-hide reveal reveal-delay-2">
+        <div class="trust-logo-wrap"><span class="trust-icon">✅</span></div>
+        <strong>SafeContractor</strong>
+        <span>Health &amp; Safety<br>Accredited</span>
+      </div>
+      <div class="trust-divider trust-mobile-hide"></div>
+      <div class="trust-item trust-mobile-hide reveal reveal-delay-3">
+        <div class="trust-logo-wrap"><span class="trust-icon">📋</span></div>
+        <strong>ISO 9001:2015</strong>
+        <span>Quality Management<br>System Certified</span>
+      </div>
+      <div class="trust-divider trust-mobile-hide"></div>
+      <div class="trust-item trust-mobile-hide reveal reveal-delay-4">
+        <div class="trust-logo-wrap"><span class="trust-icon">🔒</span></div>
+        <strong>Fully Insured</strong>
+        <span>£5m Public Liability<br>All Disciplines</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES OVERVIEW -->
+  <section id="services" style="background: var(--navy);">
+    <div class="section-inner">
+      <div class="services-intro">
+        <div class="reveal-left">
+          <div class="section-label">What We Do</div>
+          <h2 class="section-title">Three Services,<br><em>One Contract.</em></h2>
+          <div class="gold-line"></div>
+          <p class="section-sub" style="margin-bottom:2rem">
+            Managing multiple contractors is expensive, complicated, and full of gaps. We deliver electrical, building, and cleaning services under a single contract — one point of contact, one invoice, complete accountability.
+          </p>
+          <a href="services.html" class="btn-ghost">View All Services →</a>
+        </div>
+        <div class="reveal-right">
+          <div style="position:relative;border-radius:4px;overflow:hidden;aspect-ratio:4/3;">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80"
+                 data-parallax
+                 alt="Commercial building interior"
+                 style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.8) saturate(0.85);">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,9,26,0.3),transparent);"></div>
+            <div style="position:absolute;bottom:1.25rem;left:1.25rem;background:rgba(7,9,26,0.85);backdrop-filter:blur(8px);border:1px solid var(--gold-border);border-radius:2px;padding:0.5rem 1rem;font-size:0.62rem;letter-spacing:0.15em;color:var(--gold);text-transform:uppercase;">Commercial &amp; Industrial FM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-trio">
+        <div class="service-trio-card reveal-scale reveal-delay-1">
+          <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80"
+               alt="Electrical services" class="service-trio-img">
+          <div class="service-trio-body">
+            <span class="service-trio-tag">● Electrical</span>
+            <h3>Electrical<br>Services</h3>
+            <p>NICEIC-approved electrical installation, testing, and maintenance — from periodic inspections and EICRs to full rewires and emergency lighting compliance.</p>
+            <a href="services.html#electrical" class="service-trio-link">View Electrical Services →</a>
+          </div>
+        </div>
+        <div class="service-trio-card reveal-scale reveal-delay-2">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80"
+               alt="Building works and maintenance" class="service-trio-img">
+          <div class="service-trio-body">
+            <span class="service-trio-tag">● Building Works</span>
+            <h3>Building<br>Works</h3>
+            <p>Planned preventive maintenance, reactive repairs, refurbishment, and minor building works — keeping your premises compliant, presentable, and fully operational.</p>
+            <a href="services.html#building" class="service-trio-link">View Building Services →</a>
+          </div>
+        </div>
+        <div class="service-trio-card reveal-scale reveal-delay-3">
+          <img src="https://images.unsplash.com/photo-1584466977773-e625c37cdd50?auto=format&fit=crop&w=900&q=80"
+               alt="Commercial cleaning services" class="service-trio-img">
+          <div class="service-trio-body">
+            <span class="service-trio-tag">● Cleaning</span>
+            <h3>Cleaning<br>Services</h3>
+            <p>Daily commercial cleaning, specialist deep cleans, washroom services, and post-construction cleans — DBS-checked, fully trained, audit-ready at all times.</p>
+            <a href="services.html#cleaning" class="service-trio-link">View Cleaning Services →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div id="marquee-strip">
+    <div class="marquee-inner">
+      <span>CHAS Accredited</span><span class="marquee-dot">◆</span>
+      <span>NICEIC Approved Contractor</span><span class="marquee-dot">◆</span>
+      <span>SafeContractor Accredited</span><span class="marquee-dot">◆</span>
+      <span>ISO 9001:2015 Certified</span><span class="marquee-dot">◆</span>
+      <span>£5m Public Liability Insurance</span><span class="marquee-dot">◆</span>
+      <span>24-Hour Emergency Callout</span><span class="marquee-dot">◆</span>
+      <span>DBS-Checked Staff</span><span class="marquee-dot">◆</span>
+      <span>Commercial &amp; Industrial Coverage</span><span class="marquee-dot">◆</span>
+      <span>Full RAMS Documentation</span><span class="marquee-dot">◆</span>
+      <span>Tender Support Available</span><span class="marquee-dot">◆</span>
+      <span>CHAS Accredited</span><span class="marquee-dot">◆</span>
+      <span>NICEIC Approved Contractor</span><span class="marquee-dot">◆</span>
+      <span>SafeContractor Accredited</span><span class="marquee-dot">◆</span>
+      <span>ISO 9001:2015 Certified</span><span class="marquee-dot">◆</span>
+      <span>£5m Public Liability Insurance</span><span class="marquee-dot">◆</span>
+      <span>24-Hour Emergency Callout</span><span class="marquee-dot">◆</span>
+      <span>DBS-Checked Staff</span><span class="marquee-dot">◆</span>
+      <span>Commercial &amp; Industrial Coverage</span><span class="marquee-dot">◆</span>
+      <span>Full RAMS Documentation</span><span class="marquee-dot">◆</span>
+      <span>Tender Support Available</span><span class="marquee-dot">◆</span>
+    </div>
+  </div>
+
+  <!-- WHY CHOOSE US -->
+  <section id="why">
+    <div class="section-inner">
+      <div class="why-layout">
+        <div>
+          <div class="reveal">
+            <div class="section-label">Why Choose Us</div>
+            <h2 class="section-title">One Partner.<br><em>Complete Coverage.</em></h2>
+            <div class="gold-line"></div>
+            <p class="section-sub" style="margin-bottom:2.5rem">
+              Managing three separate contractors means three sets of invoices, three response times, and three gaps where things fall through. We close those gaps — completely.
+            </p>
+          </div>
+          <div class="why-grid">
+            <div class="why-item tiltable reveal reveal-delay-1">
+              <div class="why-item-num">01</div>
+              <h4>Single Point of Contact</h4>
+              <p>One contract, one invoice, one team accountable for every discipline. No more chasing contractors or managing conflicting schedules.</p>
+            </div>
+            <div class="why-item tiltable reveal reveal-delay-2">
+              <div class="why-item-num">02</div>
+              <h4>Fully Accredited</h4>
+              <p>CHAS, SafeContractor, NICEIC, ISO 9001. Every accreditation your procurement team will ask for — all in one place, always current.</p>
+            </div>
+            <div class="why-item tiltable reveal reveal-delay-3">
+              <div class="why-item-num">03</div>
+              <h4>Tender Ready</h4>
+              <p>Full RAMS documentation, method statements, insurance certificates, and compliance records — everything your tender process requires, provided upfront.</p>
+            </div>
+            <div class="why-item tiltable reveal reveal-delay-4">
+              <div class="why-item-num">04</div>
+              <h4>Rapid Response</h4>
+              <p>24-hour emergency callout for reactive works. Planned maintenance programmes that eliminate surprises before they become problems.</p>
+            </div>
+          </div>
+        </div>
+        <div class="why-image-stack reveal-right reveal-delay-1" style="margin-bottom:3rem;">
+          <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=800&q=80"
+               alt="Commercial facility interior" class="why-img-main" data-parallax>
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80"
+               alt="Professional team meeting" class="why-img-inset">
+          <div class="why-img-badge">Accredited · Insured · Audit Ready</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section style="background:var(--navy);border-top:1px solid var(--border);">
+    <div class="section-inner" style="padding-top:4rem;padding-bottom:4rem;">
+      <div class="stats-grid">
+        <div class="stat-item reveal-scale">
+          <div class="stat-num" data-count="120" data-suffix="+">0</div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="stat-item reveal-scale reveal-delay-2">
+          <div class="stat-num" data-count="15" data-suffix="+">0</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item reveal-scale reveal-delay-3">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Service Disciplines</div>
+        </div>
+        <div class="stat-item reveal-scale reveal-delay-4">
+          <div class="stat-num">24hr</div>
+          <div class="stat-label">Emergency Response</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">Enquiry to Contract<br><em>in Four Steps</em></h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-item reveal reveal-delay-1">
+          <div class="process-step">01</div>
+          <div class="process-content">
+            <h4>Initial Enquiry</h4>
+            <p>Tell us about your site and requirements. We respond within 24 hours and book a no-obligation consultation at a time that suits you.</p>
+          </div>
+        </div>
+        <div class="process-item reveal reveal-delay-2">
+          <div class="process-step">02</div>
+          <div class="process-content">
+            <h4>Site Survey</h4>
+            <p>We visit your premises to assess scope, current condition, access requirements, and service frequency. No commitment required at this stage.</p>
+          </div>
+        </div>
+        <div class="process-item reveal reveal-delay-3">
+          <div class="process-step">03</div>
+          <div class="process-content">
+            <h4>Tailored Proposal</h4>
+            <p>You receive a detailed service specification and fixed-cost pricing — complete with all compliance documentation for your procurement team.</p>
+          </div>
+        </div>
+        <div class="process-item reveal reveal-delay-4">
+          <div class="process-step">04</div>
+          <div class="process-content">
+            <h4>Ongoing Service</h4>
+            <p>We mobilise quickly, provide regular reporting, and adapt as your requirements evolve. One call handles everything, across every discipline.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORS -->
+  <section id="sectors">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Where We Work</div>
+        <h2 class="section-title">Commercial &amp;<br><em>Industrial Expertise</em></h2>
+        <p class="section-sub" style="margin-top:0.5rem">Our teams work across a full range of commercial and industrial environments. If it has four walls and a roof, we can look after it.</p>
+      </div>
+      <div class="sector-grid">
+        <div class="sector-card reveal-left reveal-delay-1">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=900&q=80"
+               alt="Commercial buildings" class="sector-card-img">
+          <div class="sector-card-body">
+            <h3>Commercial</h3>
+            <p>From corporate offices and retail units to healthcare facilities and leisure venues — we deliver compliance-driven FM services across all commercial property types.</p>
+            <div class="sector-tags">
+              <span class="sector-tag">Office Estates</span>
+              <span class="sector-tag">Retail</span>
+              <span class="sector-tag">Healthcare</span>
+              <span class="sector-tag">Hospitality</span>
+              <span class="sector-tag">Education</span>
+              <span class="sector-tag">Mixed-Use</span>
+            </div>
+          </div>
+        </div>
+        <div class="sector-card reveal-right reveal-delay-2">
+          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&q=80"
+               alt="Industrial warehouse" class="sector-card-img">
+          <div class="sector-card-body">
+            <h3>Industrial</h3>
+            <p>Manufacturing plants, warehouses, logistics hubs, and distribution centres — environments that demand robust, reliable FM with minimal disruption to operations.</p>
+            <div class="sector-tags">
+              <span class="sector-tag">Manufacturing</span>
+              <span class="sector-tag">Warehousing</span>
+              <span class="sector-tag">Logistics</span>
+              <span class="sector-tag">Distribution</span>
+              <span class="sector-tag">Food Production</span>
+              <span class="sector-tag">Engineering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="section-inner">
+      <div class="testi-header">
+        <div class="reveal">
+          <div class="section-label">Client Feedback</div>
+          <h2 class="section-title">What Our Clients<br><em>Say About Us</em></h2>
+        </div>
+        <div style="background:var(--navy-3);border:1px solid var(--border);padding:0.85rem 1.25rem;border-radius:4px;" class="reveal reveal-delay-1">
+          <div style="color:var(--gold);font-size:0.85rem;letter-spacing:2px;">★★★★★</div>
+          <strong style="font-size:0.95rem;color:var(--text);">Trusted Partner</strong>
+          <small style="color:var(--text-2);font-size:0.7rem;display:block;">Commercial &amp; Industrial Clients</small>
+        </div>
+      </div>
+      <div class="testi-track-wrap reveal">
+        <div class="testi-track" id="testiTrack">
+          <div class="testi-card">
+            <div class="testi-card-stars">★★★★★</div>
+            <blockquote>"Having all three services under one contract has genuinely transformed how we manage our estate. One call, one invoice, zero gaps. We've not had a compliance issue since switching."</blockquote>
+            <div class="testi-card-author">Facilities Manager</div>
+            <div class="testi-card-service">Commercial Property Group · Office Estate</div>
+            <div class="testi-quote-mark">"</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-card-stars">★★★★★</div>
+            <blockquote>"The tender documentation was exemplary — RAMS, CHAS certificate, insurance certificates, method statements. Our procurement team was impressed from day one. Everything we needed was there."</blockquote>
+            <div class="testi-card-author">Operations Director</div>
+            <div class="testi-card-service">Manufacturing Business · Midlands</div>
+            <div class="testi-quote-mark">"</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-card-stars">★★★★★</div>
+            <blockquote>"Reliable, professional, and completely hassle-free. The electrical testing and cleaning programmes run like clockwork. First FM contractor we've had who actually keeps to the schedule."</blockquote>
+            <div class="testi-card-author">Estate Manager</div>
+            <div class="testi-card-service">Distribution Centre · National Logistics</div>
+            <div class="testi-quote-mark">"</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-card-stars">★★★★★</div>
+            <blockquote>"Response times are exceptional. We had an emergency electrical fault on a Saturday morning — the team were on site within two hours and had us back up and running before midday. Genuinely impressive."</blockquote>
+            <div class="testi-card-author">Site Director</div>
+            <div class="testi-card-service">Food Production Facility</div>
+            <div class="testi-quote-mark">"</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-card-stars">★★★★★</div>
+            <blockquote>"We moved to a bundled FM contract after years of managing separate suppliers. The cost saving alone justified the switch. The consistency of service is on a completely different level."</blockquote>
+            <div class="testi-card-author">Head of Property</div>
+            <div class="testi-card-service">Retail Group · Multi-Site</div>
+            <div class="testi-quote-mark">"</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-controls reveal">
+        <button class="testi-btn" id="testiPrev">←</button>
+        <button class="testi-btn" id="testiNext">→</button>
+      </div>
+      <div class="testi-dots" id="testiDots"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="section-inner">
+      <div class="cta-box reveal-scale">
+        <div class="cta-bg"></div>
+        <div class="cta-overlay"></div>
+        <div class="cta-box-geo-tl"></div>
+        <div class="cta-box-geo-br"></div>
+        <div class="cta-content">
+          <h2>Ready to Simplify<br>Your <em>FM Contract?</em></h2>
+          <p>Request a quote or discuss your requirements with our team. We'll respond within 24 hours and arrange a no-obligation site visit.</p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn-primary">Request a Quote →</a>
+            <a href="tel:[PHONE]" class="btn-ghost">Call Us Now</a>
+          </div>
+          <div class="cta-contact-row">
+            <div class="cta-contact-item"><span class="cta-contact-icon">📞</span><a href="tel:[PHONE]">[PHONE NUMBER]</a></div>
+            <div class="cta-contact-item"><span class="cta-contact-icon">✉</span><a href="mailto:Sterlingcrestfm@outlook.com">Sterlingcrestfm@outlook.com</a></div>
+            <div class="cta-contact-item"><span class="cta-contact-icon">🕐</span><span>Mon–Fri · 7:30am–6pm</span></div>
+            <div class="cta-contact-item"><span class="cta-contact-icon">⚡</span><span>24hr Emergency Callout</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="trans_logo.png" alt="Sterling Crest FM" class="footer-logo-img">
+        </div>
+        <p class="footer-tagline">"Electrical. Building. Cleaning. Three disciplines, one accountable partner for every aspect of your building."</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" title="LinkedIn">in</a>
+          <a href="#" class="footer-social" title="Facebook">f</a>
+          <a href="#" class="footer-social" title="Twitter/X">𝕏</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="sectors.html">Sectors</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#electrical">Electrical Services</a></li>
+          <li><a href="services.html#building">Building Works</a></li>
+          <li><a href="services.html#cleaning">Cleaning Services</a></li>
+          <li><a href="sectors.html#commercial">Commercial Sector</a></li>
+          <li><a href="sectors.html#industrial">Industrial Sector</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Get in Touch</h5>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📞</span><a href="tel:[PHONE]">[PHONE NUMBER]</a></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">✉</span><a href="mailto:Sterlingcrestfm@outlook.com">Sterlingcrestfm@outlook.com</a></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📍</span><span>[ADDRESS], [CITY], [POSTCODE]</span></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">🕐</span><span>Mon–Fri: 7:30am–6pm<br>24hr Emergency Callout</span></div>
+        <div style="margin-top:1.25rem"><a href="contact.html" class="btn-primary" style="font-size:0.72rem;padding:0.7rem 1.5rem;">Get a Quote →</a></div>
+      </div>
+    </div>
+    <div class="footer-creds">
+      <div class="footer-creds-left">
+        <div class="cred-badge"><span class="cred-badge-dot"></span>CHAS Accredited</div>
+        <div class="cred-badge"><span class="cred-badge-dot"></span>NICEIC Approved</div>
+        <div class="cred-badge"><span class="cred-badge-dot"></span>ISO 9001:2015</div>
+        <div class="cred-badge"><span class="cred-badge-dot"></span>Company No. [XXXXXXXX]</div>
+      </div>
+      <div class="footer-creds-right">© 2025 [Company Name] Ltd. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+  <script>
+    /* ── Hero Canvas (particle network) ── */
+    (function() {
+      const canvas = document.getElementById('hero-canvas');
+      const ctx = canvas.getContext('2d');
+      let W, H;
+      const COUNT = window.innerWidth < 640 ? 35 : 65;
+      const LINK = 140;
+      const G = '201,169,110';
+      const pts = Array.from({length: COUNT}, () => ({
+        x: Math.random() * (window.innerWidth || 1200),
+        y: Math.random() * (window.innerHeight || 800),
+        vx: (Math.random()-.5)*.3, vy: (Math.random()-.5)*.3,
+        r: Math.random()*1.4+.4, a: Math.random()*.45+.15
+      }));
+      function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
+      resize(); window.addEventListener('resize', resize);
+      function draw() {
+        ctx.clearRect(0,0,W,H);
+        pts.forEach((p,i) => {
+          p.x = (p.x + p.vx + W) % W; p.y = (p.y + p.vy + H) % H;
+          ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+          ctx.fillStyle = `rgba(${G},${p.a})`; ctx.fill();
+          for(let j=i+1;j<pts.length;j++){
+            const q=pts[j], dx=p.x-q.x, dy=p.y-q.y, d=Math.sqrt(dx*dx+dy*dy);
+            if(d<LINK){ ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y);
+              ctx.strokeStyle=`rgba(${G},${(1-d/LINK)*.1})`; ctx.lineWidth=.5; ctx.stroke(); }
+          }
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    /* ── Hero mouse parallax ── */
+    (function() {
+      const content = document.querySelector('.hero-content');
+      const geos = document.querySelectorAll('.hero-geo');
+      let mx=0,my=0,cx=0,cy=0;
+      document.getElementById('hero').addEventListener('mousemove', e => {
+        const r = e.currentTarget.getBoundingClientRect();
+        mx=(e.clientX-r.left-r.width/2)/r.width;
+        my=(e.clientY-r.top-r.height/2)/r.height;
+      });
+      (function tick(){
+        cx+=(mx-cx)*.06; cy+=(my-cy)*.06;
+        if(content) content.style.transform=`translate(${cx*-10}px,${cy*-7}px)`;
+        geos.forEach(g=>g.style.transform=`translate(${cx*16}px,${cy*10}px)`);
+        requestAnimationFrame(tick);
+      })();
+    })();
+
+    /* ── Testimonial carousel ── */
+    (function(){
+      const track=document.getElementById('testiTrack'), prev=document.getElementById('testiPrev'),
+            next=document.getElementById('testiNext'), dotsEl=document.getElementById('testiDots');
+      const cards=Array.from(track.querySelectorAll('.testi-card'));
+      let pv=3, cur=0; const total=cards.length, GAP=24;
+      function cw(){ return Math.floor((track.parentElement.offsetWidth-GAP*(pv-1))/pv); }
+      function buildDots(){ dotsEl.innerHTML=''; for(let i=0;i<=total-pv;i++){ const d=document.createElement('div'); d.className='testi-dot'+(i===0?' active':''); d.onclick=()=>go(i); dotsEl.appendChild(d); } }
+      function go(i){ cur=Math.max(0,Math.min(i,total-pv)); const w=cw(); cards.forEach(c=>{c.style.flex=`0 0 ${w}px`;c.style.minWidth=`${w}px`;}); track.style.transform=`translateX(-${cur*(w+GAP)}px)`; dotsEl.querySelectorAll('.testi-dot').forEach((d,j)=>d.classList.toggle('active',j===cur)); }
+      function init(){ pv=window.innerWidth>=1024?3:window.innerWidth>=640?2:1; buildDots(); go(Math.min(cur,total-pv)); }
+      init(); window.addEventListener('resize',init);
+      let timer=setInterval(()=>go(cur>=total-pv?0:cur+1),5000);
+      function rt(){ clearInterval(timer); timer=setInterval(()=>go(cur>=total-pv?0:cur+1),5000); }
+      prev.onclick=()=>{go(cur-1);rt();}; next.onclick=()=>{go(cur+1);rt();};
+      let sx=0;
+      track.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;},{passive:true});
+      track.addEventListener('touchend',e=>{const d=sx-e.changedTouches[0].clientX;if(Math.abs(d)>50){go(d>0?cur+1:cur-1);rt();}},{passive:true});
+    })();
+  </script>
+</body>
+</html>

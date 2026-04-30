@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Sterling Crest FM Facilities Management</title>
+  <meta name="description" content="Request a quote, arrange a site visit, or discuss your FM requirements. We respond within 24 hours.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    #contact-hero .page-hero-bg {
+      background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');
+    }
+    .contact-page-section { background: var(--navy); border-top: 1px solid var(--gold-border); }
+    .tender-info-box {
+      background: var(--navy-2); border: 1px solid var(--gold-border); border-radius: 4px;
+      padding: 2.5rem;
+    }
+    .tender-info-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
+    .tender-info-box > p { font-size: 0.875rem; color: var(--text-2); margin-bottom: 2rem; line-height: 1.7; }
+    .tender-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .tender-list-item {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      padding: 0.85rem 1rem; background: var(--navy-3);
+      border: 1px solid var(--border); border-radius: 4px;
+      transition: border-color 0.3s;
+    }
+    .tender-list-item:hover { border-color: var(--gold-border); }
+    .tender-list-item span:first-child { color: var(--gold); font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .tender-list-item-text h6 { font-size: 0.82rem; font-weight: 600; color: var(--text); margin-bottom: 0.15rem; }
+    .tender-list-item-text p { font-size: 0.75rem; color: var(--text-2); line-height: 1.5; }
+    .form-success {
+      display: none; background: rgba(201,169,110,0.1); border: 1px solid var(--gold-border);
+      border-radius: 4px; padding: 1.5rem; text-align: center; margin-top: 1.5rem;
+    }
+    .form-success.show { display: block; }
+    .form-success p { color: var(--text-2); font-size: 0.875rem; }
+    .form-success strong { color: var(--gold); }
+    .response-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--gold-glow); border: 1px solid var(--gold-border);
+      padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 2rem;
+      font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold); font-weight: 600;
+    }
+    .response-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s ease infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.5;transform:scale(1.4);} }
+  </style>
+</head>
+<body>
+  <div id="scroll-bar"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="trans_logo.png" alt="Sterling Crest FM" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="sectors.html">Sectors</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta active">Get a Quote</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMobile()">Home</a>
+    <a href="services.html" onclick="closeMobile()">Services</a>
+    <a href="sectors.html" onclick="closeMobile()">Sectors</a>
+    <a href="about.html" onclick="closeMobile()">About</a>
+    <a href="contact.html" onclick="closeMobile()" class="mobile-cta">Get a Quote</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div id="contact-hero" class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-grid"></div>
+    <div class="page-hero-geo-tl"></div>
+    <div class="page-hero-geo-br"></div>
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">
+        <div class="page-hero-eyebrow-dot"></div>
+        <span>Get in Touch</span>
+      </div>
+      <h1 class="page-hero-title">Request a <em>Quote</em></h1>
+      <div class="page-hero-divider"></div>
+      <p class="page-hero-sub">Tell us about your site and requirements. We respond within 24 hours and arrange a no-obligation site visit at your convenience.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-page-section">
+    <div class="section-inner">
+      <div class="contact-layout">
+
+        <!-- FORM -->
+        <div class="reveal-left">
+          <div class="contact-form-wrap">
+            <div class="response-badge">Responds within 24 hours</div>
+            <h3>Get a Quote</h3>
+            <p>Fill in your details and we'll get back to you within one working day to discuss your requirements and arrange a free site survey.</p>
+
+            <form id="contactForm">
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="firstName">First Name</label>
+                  <input type="text" id="firstName" name="firstName" placeholder="Perry" required>
+                </div>
+                <div class="form-field">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" id="lastName" name="lastName" placeholder="Smith" required>
+                </div>
+                <div class="form-field">
+                  <label for="company">Company Name</label>
+                  <input type="text" id="company" name="company" placeholder="Your Company Ltd" required>
+                </div>
+                <div class="form-field">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" placeholder="07XXX XXXXXX" required>
+                </div>
+                <div class="form-field full">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="perry@yourcompany.co.uk" required>
+                </div>
+                <div class="form-field full">
+                  <label for="services">Services Required</label>
+                  <select id="services" name="services">
+                    <option value="" disabled selected>Select a service...</option>
+                    <option value="electrical">Electrical Services</option>
+                    <option value="building">Building Works</option>
+                    <option value="cleaning">Cleaning Services</option>
+                    <option value="bundled">Bundled FM Contract (Multiple Services)</option>
+                    <option value="tender">Tender Support &amp; Documentation</option>
+                    <option value="other">Other / Not Sure</option>
+                  </select>
+                </div>
+                <div class="form-field full">
+                  <label for="site">Site / Property Type</label>
+                  <input type="text" id="site" name="site" placeholder="e.g. Warehouse in Birmingham, 50,000 sq ft">
+                </div>
+                <div class="form-field full">
+                  <label for="message">Tell Us More</label>
+                  <textarea id="message" name="message" placeholder="Briefly describe your requirements — services needed, site details, timescales, or anything else we should know..."></textarea>
+                </div>
+                <div class="form-field full" style="display:flex;align-items:center;gap:0.75rem;">
+                  <input type="checkbox" id="tender" name="tender" style="width:auto;margin:0;accent-color:var(--gold);">
+                  <label for="tender" style="font-size:0.78rem;color:var(--text-2);letter-spacing:0;text-transform:none;font-weight:400;cursor:pointer;">I need tender / compliance documentation (RAMS, certificates, method statements)</label>
+                </div>
+              </div>
+              <div class="form-submit">
+                <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+                  Send Enquiry →
+                </button>
+              </div>
+            </form>
+
+            <div class="form-success" id="formSuccess">
+              <strong>✓ Enquiry received — thank you.</strong>
+              <p>We'll be in touch within one working day to discuss your requirements and arrange a free site survey.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTACT INFO + TENDER BOX -->
+        <div class="reveal-right">
+          <div class="section-label" style="margin-bottom:2rem;">Contact Details</div>
+
+          <div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📞</div>
+              <div>
+                <h5>Phone</h5>
+                <a href="tel:[PHONE]">[PHONE NUMBER]</a>
+                <p style="margin-top:0.2rem;">Mon–Fri · 7:30am–6pm</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">✉</div>
+              <div>
+                <h5>Email</h5>
+                <a href="mailto:Sterlingcrestfm@outlook.com">Sterlingcrestfm@outlook.com</a>
+                <p style="margin-top:0.2rem;">We respond within one working day</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📍</div>
+              <div>
+                <h5>Based In</h5>
+                <p>[ADDRESS]<br>[CITY], [POSTCODE]</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon">⚡</div>
+              <div>
+                <h5>Emergency Callout</h5>
+                <p>24-hour emergency response available for contract clients. Call the main number and select the emergency option.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tender Pack Info -->
+          <div class="tender-info-box" style="margin-top:3rem;">
+            <h3>Tendering With Us?</h3>
+            <p>We provide a full compliance and documentation pack with every proposal — designed to satisfy procurement teams and tender requirements from day one.</p>
+            <div class="tender-list">
+              <div class="tender-list-item">
+                <span>📋</span>
+                <div class="tender-list-item-text">
+                  <h6>RAMS (Risk Assessments &amp; Method Statements)</h6>
+                  <p>Task-specific RAMS for every type of work we carry out. Ready to submit with your tender pack.</p>
+                </div>
+              </div>
+              <div class="tender-list-item">
+                <span>🛡️</span>
+                <div class="tender-list-item-text">
+                  <h6>Accreditation Certificates</h6>
+                  <p>Current CHAS, SafeContractor, NICEIC, and ISO 9001 certificates provided immediately on request.</p>
+                </div>
+              </div>
+              <div class="tender-list-item">
+                <span>🔒</span>
+                <div class="tender-list-item-text">
+                  <h6>Insurance Documentation</h6>
+                  <p>£5m public liability insurance certificate. Employer's and professional indemnity also available.</p>
+                </div>
+              </div>
+              <div class="tender-list-item">
+                <span>⚡</span>
+                <div class="tender-list-item-text">
+                  <h6>NICEIC Approved Contractor Certificate</h6>
+                  <p>Confirming NICEIC approval status for all electrical contracting works.</p>
+                </div>
+              </div>
+              <div class="tender-list-item">
+                <span>📄</span>
+                <div class="tender-list-item-text">
+                  <h6>Company Policies</h6>
+                  <p>Health &amp; Safety Policy, Environmental Policy, Equal Opportunities, and GDPR compliance — all available as standard.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESPONSE PROMISE STRIP -->
+  <section style="background:var(--navy-2);border-top:1px solid var(--border);">
+    <div class="section-inner" style="padding-top:4rem;padding-bottom:4rem;">
+      <div class="stats-grid">
+        <div class="stat-item reveal-scale">
+          <div class="stat-num">24hr</div>
+          <div class="stat-label">Response to All Enquiries</div>
+        </div>
+        <div class="stat-item reveal-scale reveal-delay-2">
+          <div class="stat-num">Free</div>
+          <div class="stat-label">No-Obligation Site Survey</div>
+        </div>
+        <div class="stat-item reveal-scale reveal-delay-3">
+          <div class="stat-num">Full</div>
+          <div class="stat-label">Compliance Pack Included</div>
+        </div>
+        <div class="stat-item reveal-scale reveal-delay-4">
+          <div class="stat-num">Fixed</div>
+          <div class="stat-label">Pricing · No Hidden Extras</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="trans_logo.png" alt="Sterling Crest FM" class="footer-logo-img">
+        </div>
+        <p class="footer-tagline">"Electrical. Building. Cleaning. Three disciplines, one accountable partner for every aspect of your building."</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" title="LinkedIn">in</a>
+          <a href="#" class="footer-social" title="Facebook">f</a>
+          <a href="#" class="footer-social" title="Twitter/X">𝕏</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="sectors.html">Sectors</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#electrical">Electrical Services</a></li>
+          <li><a href="services.html#building">Building Works</a></li>
+          <li><a href="services.html#cleaning">Cleaning Services</a></li>
+          <li><a href="sectors.html#commercial">Commercial Sector</a></li>
+          <li><a href="sectors.html#industrial">Industrial Sector</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Get in Touch</h5>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📞</span><a href="tel:[PHONE]">[PHONE NUMBER]</a></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">✉</span><a href="mailto:Sterlingcrestfm@outlook.com">Sterlingcrestfm@outlook.com</a></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📍</span><span>[ADDRESS], [CITY]</span></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">🕐</span><span>Mon–Fri: 7:30am–6pm<br>24hr Emergency Callout</span></div>
+      </div>
+    </div>
+    <div class="footer-creds">
+      <div class="footer-creds-left">
+        <div class="cred-badge"><span class="cred-badge-dot"></span>CHAS Accredited</div>
+        <div class="cred-badge"><span class="cred-badge-dot"></span>NICEIC Approved</div>
+        <div class="cred-badge"><span class="cred-badge-dot"></span>ISO 9001:2015</div>
+        <div class="cred-badge"><span class="cred-badge-dot"></span>Company No. [XXXXXXXX]</div>
+      </div>
+      <div class="footer-creds-right">© 2025 [Company Name] Ltd. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+  <script>
+    /* Simple form demo handler */
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('formSuccess').classList.add('show');
+      this.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

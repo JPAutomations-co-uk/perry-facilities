@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Sterling Crest FM Facilities Management</title>
+  <meta name="description" content="Electrical services, building works, and commercial cleaning — complete facilities management under one contract.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    #services-hero .page-hero-bg {
+      background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80');
+    }
+    .service-divider {
+      height: 1px; background: var(--border); margin: 0;
+    }
+    .service-section { background: var(--navy); }
+    .service-section:nth-child(even) { background: var(--navy-2); }
+    .service-anchor { padding-top: 80px; margin-top: -80px; display: block; }
+  </style>
+</head>
+<body>
+  <div id="scroll-bar"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">
+      <img src="trans_logo.png" alt="Sterling Crest FM" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="sectors.html">Sectors</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMobile()">Home</a>
+    <a href="services.html" onclick="closeMobile()" class="active">Services</a>
+    <a href="sectors.html" onclick="closeMobile()">Sectors</a>
+    <a href="about.html" onclick="closeMobile()">About</a>
+    <a href="contact.html" onclick="closeMobile()" class="mobile-cta">Get a Quote</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div id="services-hero" class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-grid"></div>
+    <div class="page-hero-geo-tl"></div>
+    <div class="page-hero-geo-br"></div>
+    <div class="page-hero-content">
+      <div class="page-hero-eyebrow">
+        <div class="page-hero-eyebrow-dot"></div>
+        <span>What We Do</span>
+      </div>
+      <h1 class="page-hero-title">Our <em>Services</em></h1>
+      <div class="page-hero-divider"></div>
+      <p class="page-hero-sub">Three specialist service lines. One contract. Complete building care for commercial and industrial environments — delivered by accredited, fully insured teams.</p>
+    </div>
+  </div>
+
+  <!-- SERVICE QUICK LINKS -->
+  <div style="background:var(--navy-4);border-bottom:1px solid var(--gold-border);padding:1.5rem clamp(1.5rem,5vw,4rem);position:relative;z-index:10;">
+    <div style="max-width:1200px;margin:0 auto;display:flex;gap:2rem;flex-wrap:wrap;align-items:center;justify-content:center;">
+      <a href="#electrical" style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-2);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-2)'">⚡ Electrical Services</a>
+      <span style="color:var(--border)">|</span>
+      <a href="#building" style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-2);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-2)'">🔧 Building Works</a>
+      <span style="color:var(--border)">|</span>
+      <a href="#cleaning" style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-2);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-2)'">✨ Cleaning Services</a>
+    </div>
+  </div>
+
+  <!-- ELECTRICAL SERVICES -->
+  <span id="electrical" class="service-anchor"></span>
+  <section class="service-section" style="background:var(--navy);">
+    <div class="section-inner">
+      <div class="service-detail-layout">
+        <div>
+          <div class="reveal">
+            <div class="section-label">Electrical Services</div>
+            <h2 class="section-title">NICEIC-Approved<br><em>Electrical Contracting</em></h2>
+            <div class="gold-line"></div>
+            <p class="section-sub">
+              All electrical work carried out by qualified engineers under NICEIC approval — fully certified, fully documented, compliant with BS 7671 (18th Edition). From routine testing to full installations, we handle every aspect of your electrical infrastructure.
+            </p>
+          </div>
+          <ul class="service-scope-list reveal reveal-delay-1">
+            <li>Electrical Installation Condition Reports (EICR)</li>
+            <li>Fixed Wire Testing</li>
+            <li>Portable Appliance Testing (PAT)</li>
+            <li>Emergency Lighting Testing &amp; Maintenance</li>
+            <li>New Electrical Installations</li>
+            <li>Distribution Board Upgrades</li>
+            <li>LED Lighting Design &amp; Installation</li>
+            <li>Power Distribution Works</li>
+            <li>EV Charging Point Installation</li>
+            <li>Data &amp; Structured Cabling</li>
+            <li>Fire Alarm Systems</li>
+            <li>Reactive &amp; 24hr Emergency Response</li>
+          </ul>
+          <div style="margin-top:2rem;" class="reveal reveal-delay-2">
+            <a href="contact.html" class="btn-primary">Request an EICR Quote →</a>
+          </div>
+        </div>
+        <div class="service-img-panel reveal-right">
+          <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
+               alt="Electrical installation and testing" data-parallax>
+          <div class="service-img-panel-overlay"></div>
+          <div class="service-img-badge">NICEIC Approved Contractor</div>
+        </div>
+      </div>
+
+      <!-- Electrical compliance callout -->
+      <div class="compliance-grid reveal" style="background:var(--navy-2);border:1px solid var(--gold-border);border-radius:4px;padding:2rem 2.5rem;margin-top:0;">
+        <div>
+          <div style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Compliance Standard</div>
+          <p style="font-size:0.875rem;color:var(--text-2);">All work completed to BS 7671 18th Edition Wiring Regulations with full certification provided.</p>
+        </div>
+        <div>
+          <div style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Documentation</div>
+          <p style="font-size:0.875rem;color:var(--text-2);">Full electrical certificates, minor works certificates, and EICR reports issued for every job completed.</p>
+        </div>
+        <div>
+          <div style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Emergency Cover</div>
+          <p style="font-size:0.875rem;color:var(--text-2);">24-hour emergency callout for electrical faults. Target response: 2 hours. Available 365 days a year.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="service-divider"></div>
+
+  <!-- BUILDING WORKS -->
+  <span id="building" class="service-anchor"></span>
+  <section class="service-section" style="background:var(--navy-2);">
+    <div class="section-inner">
+      <div class="service-detail-layout reverse">
+        <div>
+          <div class="reveal">
+            <div class="section-label">Building Works</div>
+            <h2 class="section-title">Planned &amp; Reactive<br><em>Building Maintenance</em></h2>
+            <div class="gold-line"></div>
+            <p class="section-sub">
+              Whether you need a structured planned preventive maintenance programme or immediate reactive response to building issues, our trades teams cover the full scope of building works — from fabric maintenance to full refurbishment.
+            </p>
+          </div>
+          <ul class="service-scope-list reveal reveal-delay-1">
+            <li>Planned Preventive Maintenance (PPM)</li>
+            <li>Reactive Maintenance &amp; Repairs</li>
+            <li>Office Refurbishment &amp; Fit-Out</li>
+            <li>Internal &amp; External Decoration</li>
+            <li>Roofing Works &amp; Waterproofing</li>
+            <li>Plumbing &amp; Drainage</li>
+            <li>Carpentry &amp; Joinery</li>
+            <li>Flooring (Carpet, Vinyl, Tiling)</li>
+            <li>Brickwork &amp; Masonry Repairs</li>
+            <li>Suspended Ceilings &amp; Partitions</li>
+            <li>HVAC Maintenance</li>
+            <li>Minor Civil &amp; Groundworks</li>
+          </ul>
+          <div style="margin-top:2rem;" class="reveal reveal-delay-2">
+            <a href="contact.html" class="btn-primary">Discuss a PPM Programme →</a>
+          </div>
+        </div>
+        <div class="service-img-panel reveal-left">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80"
+               alt="Building maintenance works" data-parallax>
+          <div class="service-img-panel-overlay"></div>
+          <div class="service-img-badge">Planned &amp; Reactive Works</div>
+        </div>
+      </div>
+
+      <div class="compliance-grid reveal" style="background:var(--navy-3);border:1px solid var(--border);border-radius:4px;padding:2rem 2.5rem;margin-top:0;">
+        <div>
+          <div style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">PPM Programmes</div>
+          <p style="font-size:0.875rem;color:var(--text-2);">Scheduled maintenance visits with full written reports, photographic evidence, and compliance sign-off after each visit.</p>
+        </div>
+        <div>
+          <div style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">RAMS Provided</div>
+          <p style="font-size:0.875rem;color:var(--text-2);">Risk Assessments and Method Statements provided for all works — essential for procurement and tender submissions.</p>
+        </div>
+        <div>
+          <div style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Minimal Disruption</div>
+          <p style="font-size:0.875rem;color:var(--text-2);">Works scheduled around your operational hours. Out-of-hours and weekend working available for critical projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="service-divider"></div>
+
+  <!-- CLEANING SERVICES -->
+  <span id="cleaning" class="service-anchor"></span>
+  <section class="service-section" style="background:var(--navy);">
+    <div class="section-inner">
+      <div class="service-detail-layout">
+        <div>
+          <div class="reveal">
+            <div class="section-label">Cleaning Services</div>
+            <h2 class="section-title">Commercial Cleaning,<br><em>Audit Ready.</em></h2>
+            <div class="gold-line"></div>
+            <p class="section-sub">
+              DBS-checked, fully trained cleaning operatives delivering consistent, auditable results across commercial and industrial environments. Daily contracts, periodic deep cleans, and specialist cleaning — all backed by comprehensive quality reports.
+            </p>
+          </div>
+          <ul class="service-scope-list reveal reveal-delay-1">
+            <li>Daily Commercial Cleaning</li>
+            <li>Industrial Floor Cleaning</li>
+            <li>Deep Cleaning &amp; Decontamination</li>
+            <li>Washroom Services &amp; Consumables</li>
+            <li>Window Cleaning (Internal &amp; External)</li>
+            <li>High-Level &amp; Specialist Cleaning</li>
+            <li>Post-Construction Cleaning</li>
+            <li>Pressure Washing &amp; Jet Washing</li>
+            <li>Carpet &amp; Upholstery Cleaning</li>
+            <li>Waste Management</li>
+            <li>Grounds Maintenance</li>
+            <li>Covid-Safe &amp; Hygiene Cleans</li>
+          </ul>
+          <div style="margin-top:2rem;" class="reveal reveal-delay-2">
+            <a href="contact.html" class="btn-primary">Get a Cleaning Quote →</a>
+          </div>
+        </div>
+        <div class="service-img-panel reveal-right">
+          <img src="https://images.unsplash.com/photo-1584466977773-e625c37cdd50?auto=format&fit=crop&w=800&q=80"
+               alt="Commercial cleaning services" data-parallax>
+          <div class="service-img-panel-overlay"></div>
+          <div class="service-img-badge">DBS-Checked · Fully Trained</div>
+        </div>
+      </div>
+
+      <div class="compliance-grid reveal" style="background:var(--navy-2);border:1px solid var(--gold-border);border-radius:4px;padding:2rem 2.5rem;margin-top:0;">
+        <div>
+          <div style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Staff Compliance</div>
+          <p style="font-size:0.875rem;color:var(--text-2);">All cleaning operatives are DBS-checked, COSHH-trained, and hold valid right-to-work documentation — fully auditable.</p>
+        </div>
+        <div>
+          <div style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Quality Reporting</div>
+          <p style="font-size:0.875rem;color:var(--text-2);">Digital job sheets, photographic reports, and monthly quality audits — everything you need for compliance and management reporting.</p>
+        </div>
+        <div>
+          <div style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Flexible Contracts</div>
+          <p style="font-size:0.875rem;color:var(--text-2);">Daily, weekly, or periodic contracts tailored to your operational requirements. Bundled with other services for maximum value.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section style="background:var(--navy-2);border-top:1px solid var(--border);">
+    <div class="section-inner" style="padding-top:4rem;padding-bottom:4rem;text-align:center;">
+      <div class="reveal">
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:600;color:var(--text);margin-bottom:1rem;">Bundle All Three Services &amp; <em style="color:var(--gold);font-style:italic;">Save</em></h2>
+        <p style="color:var(--text-2);max-width:520px;margin:0 auto 2rem;font-size:0.95rem;line-height:1.75;">Combined FM contracts are more cost-effective, more accountable, and significantly easier to manage. Request a bundled quote today.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="contact.html" class="btn-primary">Request a Bundled Quote →</a>
+          <a href="about.html" class="btn-ghost">About Our Team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="trans_logo.png" alt="Sterling Crest FM" class="footer-logo-img">
+        </div>
+        <p class="footer-tagline">"Electrical. Building. Cleaning. Three disciplines, one accountable partner for every aspect of your building."</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" title="LinkedIn">in</a>
+          <a href="#" class="footer-social" title="Facebook">f</a>
+          <a href="#" class="footer-social" title="Twitter/X">𝕏</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="sectors.html">Sectors</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#electrical">Electrical Services</a></li>
+          <li><a href="#building">Building Works</a></li>
+          <li><a href="#cleaning">Cleaning Services</a></li>
+          <li><a href="sectors.html#commercial">Commercial Sector</a></li>
+          <li><a href="sectors.html#industrial">Industrial Sector</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Get in Touch</h5>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📞</span><a href="tel:[PHONE]">[PHONE NUMBER]</a></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">✉</span><a href="mailto:Sterlingcrestfm@outlook.com">Sterlingcrestfm@outlook.com</a></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📍</span><span>[ADDRESS], [CITY]</span></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">🕐</span><span>Mon–Fri: 7:30am–6pm</span></div>
+      </div>
+    </div>
+    <div class="footer-creds">
+      <div class="footer-creds-left">
+        <div class="cred-badge"><span class="cred-badge-dot"></span>CHAS Accredited</div>
+        <div class="cred-badge"><span class="cred-badge-dot"></span>NICEIC Approved</div>
+        <div class="cred-badge"><span class="cred-badge-dot"></span>ISO 9001:2015</div>
+        <div class="cred-badge"><span class="cred-badge-dot"></span>Company No. [XXXXXXXX]</div>
+      </div>
+      <div class="footer-creds-right">© 2025 [Company Name] Ltd. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>
